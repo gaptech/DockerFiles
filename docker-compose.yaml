@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+   rabbitmq:
+     image: rabbitmq:3-management
+     ports:
+       - "8085:15672"
+     restart: always
+     environment:
+       RABBITMQ_DEFAULT_USER: gaptech
+       RABBITMQ_DEFAULT_PASS: gaptech
+   jenkins:
+     image: jenkins/jenkins:lts
+     ports:
+       - "8090:8080"
+       - "50000:50000"
+     restart: always
+volumes:
+    jenkins_home:/var/jenkins_home
