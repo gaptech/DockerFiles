@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  myspringbootapp:
+    image: gaptech/springbootapp:latest
+    ports:
+      - 8090:8090/tcp
+    deploy:
+      replicas: 5
+      placement:
+        constraints:
+          - node.hostname == master
+  dockerdemo:
+    image: gaptech/dockerdemo:latest
+    ports:
+      - 8091:80/tcp
+    deploy:
+      replicas: 5
+        
